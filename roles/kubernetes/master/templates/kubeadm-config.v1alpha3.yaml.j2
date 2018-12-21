@@ -43,7 +43,7 @@ controlPlaneEndpoint: {{ kubeadm_config_api_fqdn }}:{{ loadbalancer_apiserver.po
 controlPlaneEndpoint: {{ ip | default(ansible_default_ipv4.address) }}:{{ kube_apiserver_port }}
 {% endif %}
 apiServerCertSANs:
-{% for san in  apiserver_sans.split(' ') | unique %}
+{% for san in apiserver_sans.split() | unique %}
   - {{ san }}
 {% endfor %}
 certificatesDir: {{ kube_cert_dir }}
@@ -70,7 +70,6 @@ apiServerExtraArgs:
 {% if kube_version is version('v1.9', '>=') %}
   endpoint-reconciler-type: lease
 {% endif %}
-  storage-backend: etcd3
 {% if etcd_events_cluster_enabled %}
   etcd-servers-overrides: "/events#{{ etcd_events_access_addresses }}"
 {% endif %}
