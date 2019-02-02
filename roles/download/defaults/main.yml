@@ -44,10 +44,10 @@ kube_image_repo: "gcr.io/google-containers"
 
 # TODO(mattymo): Move calico versions to roles/network_plugins/calico/defaults
 # after migration to container download
-calico_version: "v3.1.3"
-calico_ctl_version: "v3.1.3"
-calico_cni_version: "v3.1.3"
-calico_policy_version: "v3.1.3"
+calico_version: "v3.4.0"
+calico_ctl_version: "v3.4.0"
+calico_cni_version: "v3.4.0"
+calico_policy_version: "v3.4.0"
 calico_rr_version: "v0.6.1"
 
 flannel_version: "v0.10.0"
@@ -194,7 +194,7 @@ coredns_version: "1.2.6"
 coredns_image_repo: "coredns/coredns"
 coredns_image_tag: "{{ coredns_version }}"
 
-nodelocaldns_version: "1.15.0"
+nodelocaldns_version: "1.15.1"
 nodelocaldns_image_repo: "k8s.gcr.io/k8s-dns-node-cache"
 nodelocaldns_image_tag: "{{ nodelocaldns_version }}"
 
